@@ -9,12 +9,6 @@ Accounts.create_user(%{
   "password" => "contento"
 })
 
-Settings.create_settings(%{
-  "website_title" => "An Awesome Website",
-  "website_description" => "Random Opinions and Ideas",
-  "theme_id" => 1
-})
-
 Themes.create_theme(%{
   "id" => 1,
   "alias" => "simplo",
@@ -25,4 +19,9 @@ Themes.create_theme(%{
   "setting_id" => 1,
 })
 
-
+Settings.create_settings(%{
+  "id" => 1,
+  "website_title" => "An Awesome Website",
+  "website_description" => "Random Opinions and Ideas",
+  "theme_id" => 1
+})
