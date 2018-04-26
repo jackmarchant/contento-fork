@@ -33,7 +33,8 @@ config :contento, ContentoWeb.Plug.Website,
 
 # Configure Liquid
 config :liquid,
-  file_system: {Contento.Themer.FileSystem, "priv/themes"}
+  file_system: {Contento.Themer.FileSystem, "priv/themes"},
+  extra_filter_modules: [ContentoWeb.ThemeHelpers]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

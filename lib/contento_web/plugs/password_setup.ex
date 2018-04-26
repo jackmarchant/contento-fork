@@ -12,7 +12,7 @@ defmodule ContentoWeb.Plug.PasswordSetup do
 
         if should_redirect?(conn) do
           conn
-          |> redirect(to: "/c/account")
+          |> redirect(to: "/admin/account")
           |> halt()
         else
           conn
@@ -26,6 +26,6 @@ defmodule ContentoWeb.Plug.PasswordSetup do
   end
 
   defp should_redirect?(conn) do
-    "/c/account" != conn.request_path && "/c/account/password" != conn.request_path
+    "/admin/account" != conn.request_path && "/admin/account/password" != conn.request_path
   end
 end

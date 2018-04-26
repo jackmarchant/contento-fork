@@ -10,12 +10,21 @@ defmodule ContentoWeb.WebsiteController do
 
   action_fallback ContentoWeb.FallbackController
 
-  def index(conn, params) do
+  def index(conn, _params) do
+    page = Content.get_page(slug: "home")
+    do_render(conn, 200, "index", page: page)
+  end
+
+  def blog(conn, params) do
     data = Content.list_posts(params)
 
-    do_render(conn, 200, "index", posts: data.entries, page_number: data.page_number,
-                                  page_size: data.page_size, total_pages: data.total_pages,
-                                  total_entries: data.total_entries)
+    do_render(conn, 200, "index",
+      posts: data.entries, 
+      page_number: data.page_number,
+      page_size: data.page_size, 
+      total_pages: data.total_pages,
+      total_entries: data.total_entries
+    )
   end
 
   def page_or_post(conn, assigns, :page_title) do

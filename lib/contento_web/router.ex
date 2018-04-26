@@ -30,7 +30,7 @@ defmodule ContentoWeb.Router do
     end
   end
 
-  scope "/c", ContentoWeb, as: :admin do
+  scope "/admin", ContentoWeb, as: :admin do
     pipe_through [:browser, :contento]
 
     # Account
