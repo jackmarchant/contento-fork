@@ -34,3 +34,5 @@ npm-debug.log
 
 # ElixirLS
 /.elixir_ls
+# env vars
+.envrc

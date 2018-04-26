@@ -9,9 +9,10 @@ defmodule Contento.Mixfile do
       elixirc_paths: elixirc_paths(Mix.env),
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
       start_permanent: Mix.env == :prod,
+      build_embedded: Mix.env == :prod,
       aliases: aliases(),
       deps: deps(),
-      name: "Contento",
+      name: "Contento Test",
       source_url: "https://github.com/contentocms/contento",
       homepage_url: "https://getcontento.com",
       description: """

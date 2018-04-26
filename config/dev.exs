@@ -48,6 +48,18 @@ config :logger, :console, format: "[$level] $message\n"
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
 
-if File.exists?("config/dev.secret.exs") do
-  import_config "dev.secret.exs"
-end
+# Configure Database
+config :contento, Contento.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: System.get_env("DATABASE_URL"),
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
+  ssl: false
+
+# Configure Guardian
+config :contento, Contento.Guardian,
+  issuer: "contento_test_dev",
+  secret_key: "v6uNsoa0G/b9x0v+0P7aonFfEbhC0UKx6VkNf2lFjyfyTAF0lJ4dQrAn69/YlryH"
+
+# Configure Bamboo
+config :contento, Contento.Mailer,
+  adapter: Bamboo.LocalAdapter
