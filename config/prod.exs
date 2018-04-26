@@ -53,5 +53,3 @@ config :contento, Contento.Mailer,
   allowed_tls_versions: [:"tlsv1", :"tlsv1.1", :"tlsv1.2"],
   ssl: false, # can be `true`
   retries: 1
-
-import_config "prod.secret.exs"
