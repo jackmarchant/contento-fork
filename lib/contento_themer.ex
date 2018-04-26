@@ -10,6 +10,9 @@ defmodule Contento.Themer do
     with {:ok, tpl} = read_template_file(template, template_context(assigns)),
          {:ok, final} = read_template_file("theme", layout_context(conn, assigns, tpl)),
          do: final
+    else
+      {:error, _} -> Logger.info "Could not render template #{template}"
+    end
   end
 
   defp template_context(assigns), do: assigns_to_context(assigns)
